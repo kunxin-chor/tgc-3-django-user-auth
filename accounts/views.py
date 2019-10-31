@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, reverse, HttpResponse
 from django.contrib import auth, messages
-
+from .forms import UserLoginForm
 
 # Create your views here.
 def index(request):
@@ -18,4 +18,7 @@ def logout(request):
 This is login function
 """
 def login(request):
-    return render(request, 'accounts/login.template.html')
+    form = UserLoginForm()
+    return render(request, 'accounts/login.template.html', {
+        'form':form
+    })
