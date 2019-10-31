@@ -30,7 +30,9 @@
             </li>
           </ul>
         </nav> 
-  
+           {% if request.user.username %}
+            Logged In As:{{request.user.username}}
+           {% endif %}
     </div>
 
     <!-- Optional JavaScript -->
