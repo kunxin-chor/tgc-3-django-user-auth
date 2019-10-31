@@ -6,7 +6,16 @@ from django.contrib import auth, messages
 def index(request):
     return render(request, "accounts/index.template.html")
     
+"""
+This is the logout function
+"""
 def logout(request):
     auth.logout(request)
     messages.success(request, "You have been logged out")
     return redirect(index)
+
+"""
+This is login function
+"""
+def login(request):
+    return render(request, 'accounts/login.template.html')
