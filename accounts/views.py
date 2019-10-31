@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, reverse, HttpResponse
 from django.contrib import auth, messages
-from .forms import UserLoginForm
+from .forms import UserLoginForm, UserRegistrationForm
 
 # import in the login_required annonation
 from django.contrib.auth.decorators import login_required
@@ -44,3 +44,9 @@ def login(request):
 @login_required
 def profile(request):
     return HttpResponse("Profile")
+    
+def register(request):
+    register_form = UserRegistrationForm()
+    return render(request, "accounts/register.template.html", {
+        'form': register_form
+    })
