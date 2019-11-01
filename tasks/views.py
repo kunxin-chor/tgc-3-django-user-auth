@@ -1,6 +1,13 @@
 from django.shortcuts import render, redirect
 from .forms import ItemForm
 from django.contrib import auth, messages
+from .models import Item
+
+def show_items(request):
+    items = Item.objects.all()
+    return render(request, 'tasks/show_items.template.html', {
+        'items':items
+    })
 
 # Create your views here.
 def create_item(request):
