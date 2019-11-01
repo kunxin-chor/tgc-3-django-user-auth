@@ -13,7 +13,7 @@ def show_items(request):
 def create_item(request):
     if request.method == "POST":
         # create the form and fill it in with the user input
-        form = ItemForm(request.POST)
+        form = ItemForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             messages.success(request, "New item has been added successfully!")
