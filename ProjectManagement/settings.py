@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'tasks',
-    'accounts'
+    'accounts',
+    'donate'
 ]
 
 MIDDLEWARE = [
@@ -146,3 +147,6 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
+
+STRIPE_PUBLISHABLE_KEY=os.environ['STRIPE_PUBLISHABLE_KEY']
+STRIPE_SECRET_KEY = os.environ['STRIPE_SECRET_KEY']
