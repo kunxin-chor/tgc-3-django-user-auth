@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
+    'pyuploadcare.dj',
     'tasks',
     'accounts',
     'donate'
@@ -51,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
 ROOT_URLCONF = 'ProjectManagement.urls'
@@ -122,6 +124,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # All this for using our own User class
 AUTH_USER_MODEL = 'accounts.MyUser'
@@ -150,3 +154,18 @@ MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
 
 STRIPE_PUBLISHABLE_KEY=os.environ['STRIPE_PUBLISHABLE_KEY']
 STRIPE_SECRET_KEY = os.environ['STRIPE_SECRET_KEY']
+
+EMAIL_BACKEND = 'django_mailgun.MailgunBackend'
+MAILGUN_ACCESS_KEY=os.environ['MAILGUN_PRIVATE_KEY']
+MAILGUN_SERVER_NAME="mg.geek-verse.com"
+
+DEFAULT_FROM_EMAIL = 'admin@mg.geek-verse.com'
+FROM_EMAIL = "admin@mg.geek-verse.com"
+
+UPLOADCARE_PUBLIC_KEY=os.environ['UPLOADCARE_PUBLIC_KEY']
+UPLOADCARE_SECRET_KEY=os.environ['UPLOADCARE_SECRET_KEY']
+
+UPLOADCARE = {
+    'pub_key': UPLOADCARE_PUBLIC_KEY,
+    'secret':UPLOADCARE_SECRET_KEY
+}

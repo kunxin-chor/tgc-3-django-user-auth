@@ -24,5 +24,6 @@ urlpatterns = [
     path('', index, name='index'),
     path('accounts/', include('accounts.urls')),
     path('tasks/', include('tasks.urls')),
-    path('donate/', include('donate.urls'))
+    path('donate/', include('donate.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
