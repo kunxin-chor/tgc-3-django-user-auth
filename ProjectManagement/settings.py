@@ -26,7 +26,7 @@ SECRET_KEY = '+2%(007z(823956&gq3wj)hmh0)8tqcy43tkn+g-g3fq37318l'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["https://ckx-django-herkou.herokuapp.com/"]
+ALLOWED_HOSTS = ["ckx-django-herkou.herokuapp.com"]
 
 
 # Application definition
